@@ -11,23 +11,30 @@ export class Home extends Component {
     }
 
     componentDidMount() {
-        console.log(this)
+        console.log(this.props)
+        this._getPokeData()
+    }
+
+    _getPokeData = () => {
+        fetch(this.props.api)
+            .then(response => response.json())
+            .then(r => {
+                var data = r.results.map(res => res)
+            })
     }
 
     render() {
         return (
             <div>
                 <NavBar></NavBar>
-
+                {this.props.search}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return {
-        search: new Home(state)
-    }
+    return state
 }
 
 export default connect(mapStateToProps, null)(Home)

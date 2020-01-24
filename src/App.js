@@ -4,11 +4,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './Components/Home/Home.jsx';
-
+import { connect } from 'react-redux';
 
 export class App extends Component {
+  state = {
+    estadoApp: 'Hola'
+  }
   componentDidMount = () => {
-    console.log(this)
+    // console.log(this.props)
   };
 
   render() {
@@ -20,4 +23,10 @@ export class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = state => {
+  return {
+    tryal: state
+  }
+}
+
+export default connect(mapStateToProps, null)(App)
