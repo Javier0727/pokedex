@@ -17,7 +17,7 @@ export class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={Home} />
+        <Route path="/pokedex/" component={Home} />
       </Router>
     )
   }
