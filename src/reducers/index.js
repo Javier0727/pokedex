@@ -4,13 +4,16 @@ const reducer = (state, action) => {
         case 'SET_SEARCH':
             return {
                 ...state,
-                pokeList: action.payload.data
+                pokeList: action.payload.data,
+                search: action.payload.search
             }
             break;
         case 'SET_PAGINATOR':
+            // console.log(action.payload)
             return {
                 ...state,
-                pokeList: action.payload.data
+                pokeList: action.payload.data,
+                search: action.payload.search
             }
             break;
 
