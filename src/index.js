@@ -8,21 +8,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 // const pokeData = async () => await fetch('https://pokeapi.co/api/v2/pokemon');
-const request = async () => {
-    const pokeData = await fetch('https://pokeapi.co/api/v2/pokemon')
-    const pokeDataJSON = await pokeData.json()
-    console.log(pokeData)
-    // return pokeDataJSON;
-    // return 'Si'
+
+async function getUserAsync() {
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+    let data = await response.json();
+    return data;
 }
-// const coso = async () => await request()
-// console.log(request())
+
 const initialState = {
     'api': 'https://pokeapi.co/api/v2/pokemon',
-    'pokeList': fetch('https://pokeapi.co/api/v2/pokemon')
-        .then(response => response.json())
-        .then(r => r.results.map(res => res))
-        .catch(err => null),
+    'pokeList': getUserAsync(),
     'search': ''
 }
 
